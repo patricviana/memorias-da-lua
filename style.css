@@ -1,0 +1,39 @@
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f8f5f2;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+.frase-inicio, .frase-final {
+  text-align: center;
+  font-style: italic;
+  margin-top: 1rem;
+}
+.carta {
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.6;
+  background: #fff8f5;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.memoria {
+  text-align: center;
+  margin: 2rem auto;
+}
+.memoria img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+.legenda {
+  margin-top: 0.5rem;
+  font-style: italic;
+}

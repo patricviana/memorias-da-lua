@@ -1,39 +1,89 @@
-
 body {
-  font-family: 'Georgia', serif;
-  background-color: #f8f5f2;
   margin: 0;
-  padding: 2rem;
-  color: #333;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #fff5f5;
+  /* Fundo tipo pinceladas e textura suave */
+  background-image:
+    radial-gradient(circle at 20% 20%, #ffe0e0 10%, transparent 11%),
+    radial-gradient(circle at 80% 30%, #fcd7f5 8%, transparent 10%),
+    radial-gradient(circle at 50% 80%, #ffe9c9 10%, transparent 10%);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #5f5f5f;
 }
-h1 {
+
+h1, h2 {
+  font-family: 'Brush Script MT', cursive;
   text-align: center;
-  font-size: 2.5rem;
+  color: #c94c4c;
+  margin: 40px 0;
 }
-.frase-inicio, .frase-final {
+
+section {
+  padding: 2rem 1rem;
   text-align: center;
-  font-style: italic;
-  margin-top: 1rem;
 }
+
+video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 .carta {
   max-width: 800px;
   margin: 2rem auto;
-  line-height: 1.6;
-  background: #fff8f5;
+  background: rgba(255,255,255,0.9);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  line-height: 1.6;
+  font-size: 1.1em;
 }
+
 .memoria {
-  text-align: center;
-  margin: 2rem auto;
-}
-.memoria img {
+  margin: 20px auto;
   width: 90%;
   max-width: 500px;
-  border-radius: 10px;
+  position: relative;
 }
+
+.memoria img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.memoria:hover img {
+  transform: scale(1.02);
+}
+
 .legenda {
-  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem;
+  border-radius: 8px;
   font-style: italic;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.memoria:hover .legenda {
+  display: block;
+}
+
+.frase-inicio, .frase-final {
+  font-family: 'Brush Script MT', cursive;
+  color: #c94c4c;
+}
+
+.frase-inicio {
+  font-size: 2.2em;
+  margin: 60px auto 20px;
+}
+
+.frase-final {
+  font-size: 1.8em;
+  margin: 80px auto 40px;
+  opacity: 0.8;
 }

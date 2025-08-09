@@ -82,8 +82,10 @@ video {
   margin: 60px auto 20px;
 }
 
-.frase-final {
-  font-size: 1.8em;
-  margin: 80px auto 40px;
-  opacity: 0.8;
+ .footer-message {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
 }

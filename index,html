@@ -124,7 +124,7 @@
           }, 1200);
         } else {
           setTimeout(() => {
-            window.location.href = "index.html"; // leva para seu site principal
+            window.location.href = "home.html"; // leva para seu site principal
           }, 1500);
         }
       } else {

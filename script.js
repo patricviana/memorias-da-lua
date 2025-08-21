@@ -1,24 +1,19 @@
-const questions = [
-  "Qual foi o último sonho bonito que você lembra?",
-  "Se pudesse guardar apenas uma memória, qual seria?",
-  "Que palavra descreveria a Lua hoje?"
-];
+document.getElementById("submit").addEventListener("click", function () {
+  const questions = document.querySelectorAll(".question");
+  let allCorrect = true;
 
-let currentQuestion = 0;
+  questions.forEach((q, index) => {
+    const correct = q.dataset.answer;
+    const checked = q.querySelector("input[type=radio]:checked");
+    if (!checked || checked.value !== correct) {
+      allCorrect = false;
+    }
+  });
 
-function nextQuestion() {
-  const answerInput = document.getElementById("answer");
-  if (answerInput.value.trim() === "") return;
-
-  currentQuestion++;
-  if (currentQuestion < questions.length) {
-    document.getElementById("question").textContent = questions[currentQuestion];
-    answerInput.value = "";
+  if (allCorrect) {
+    document.getElementById("questions").classList.add("hidden");
+    document.getElementById("final-message").classList.remove("hidden");
   } else {
-    document.getElementById("portal").innerHTML = "<h2>Bem-vinda ao Portal da Lua 🌙</h2><p>Agora siga para o presente...</p>";
+    alert("Nem todos os mistérios foram desvendados... tente novamente.");
   }
-}
-
-window.onload = () => {
-  document.getElementById("question").textContent = questions[currentQuestion];
-};
+});

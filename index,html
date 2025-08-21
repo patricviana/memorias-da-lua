@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal da Lua</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: radial-gradient(circle at center, #0b0c10, #000);
+      color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      max-width: 500px;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #dcdcdc;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      width: 80%;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #e0e0e0;
+      color: #000;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #fff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    .message {
+      margin-top: 15px;
+      color: #f88;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✦ O Portal da Lua ✦</h1>
+    <p id="question">Primeira chave: O que brilha sem pedir nada em troca?</p>
+    <input type="text" id="answer" placeholder="Digite sua resposta...">
+    <br>
+    <button onclick="checkAnswer()">Entrar</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const steps = [
+      {
+        question: "Primeira chave: O que brilha sem pedir nada em troca?",
+        answer: "a lua"
+      },
+      {
+        question: "Segunda chave: O que a noite guarda em silêncio?",
+        answer: "as estrelas"
+      },
+      {
+        question: "Última chave: Quem é capaz de guardar memórias eternas?",
+        answer: "o coração"
+      }
+    ];
+
+    let currentStep = 0;
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      const message = document.getElementById("message");
+
+      if (input === steps[currentStep].answer) {
+        message.style.color = "#9f9";
+        message.textContent = "✦ A Lua sorri e abre mais uma passagem...";
+
+        currentStep++;
+        if (currentStep < steps.length) {
+          setTimeout(() => {
+            document.getElementById("question").textContent = steps[currentStep].question;
+            document.getElementById("answer").value = "";
+            message.textContent = "";
+          }, 1200);
+        } else {
+          setTimeout(() => {
+            window.location.href = "index.html"; // leva para seu site principal
+          }, 1500);
+        }
+      } else {
+        message.style.color = "#f88";
+        message.textContent = "A Lua permanece em silêncio...";
+      }
+    }
+  </script>
+</body>
+</html>

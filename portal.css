@@ -84,3 +84,20 @@ body {
   20% { transform: translate(-300px, 600px); opacity: 0; }
   100% { opacity: 0; }
 }
+
+.portal-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.portal-link:hover {
+  background: #ff66cc;
+  color: #fff;
+  box-shadow: 0 0 15px #ff66cc;
+}

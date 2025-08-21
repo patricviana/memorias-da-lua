@@ -10,17 +10,43 @@
   <div class="stars"></div>
   <div class="shooting-star"></div>
 
-  <div id="portal-container">
-    <div id="portal">
-      <h1>Antes de entrar...</h1>
-      <div id="question-container">
-        <p id="question"></p>
-        <input type="text" id="answer" placeholder="Sua resposta...">
-        <button onclick="nextQuestion()">Avançar</button>
+  <div class="portal-container">
+    <h1>🌙 O Portal da Lua</h1>
+    <p>Será que você ainda lembra dos nossos detalhes? Acerte as perguntas para seguir.</p>
+
+    <div id="questions">
+
+      <!-- Pergunta 1 -->
+      <div class="question" data-answer="b">
+        <h2>Qual dia começamos a namorar?</h2>
+        <label><input type="radio" name="q1" value="a"> 17/Jan/2025</label><br>
+        <label><input type="radio" name="q1" value="b"> 13/Jan/2025</label>
       </div>
+
+      <!-- Pergunta 2 -->
+      <div class="question" data-answer="a">
+        <h2>Qual é o melhor cachorro quente?</h2>
+        <label><input type="radio" name="q2" value="a"> Dog de SP</label><br>
+        <label><input type="radio" name="q2" value="b"> Dogão do RJ</label>
+      </div>
+
+      <!-- Pergunta 3 -->
+      <div class="question" data-answer="b">
+        <h2>Qual chave abre este portal?</h2>
+        <label><input type="radio" name="q3" value="a"> O silêncio da noite</label><br>
+        <label><input type="radio" name="q3" value="b"> O teu coração</label>
+      </div>
+
+      <button id="submit">Abrir o portal</button>
+    </div>
+
+    <div id="final-message" class="hidden">
+      <h2>✨ O portal se abre diante de ti...</h2>
+      <a href="index.html" class="portal-link">Entrar no mundo da Lua</a>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="portal.js"></script>
 </body>
 </html>
+

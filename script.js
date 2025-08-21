@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const questions = document.querySelectorAll(".question");
-  let current = 0;
 
   function showQuestion(index) {
     questions.forEach((q, i) => {
@@ -8,14 +7,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Botão "Próxima"
+  // Avançar perguntas
   document.querySelectorAll(".next-btn").forEach((btn, index) => {
     btn.addEventListener("click", () => {
       const q = questions[index];
       const correct = q.dataset.answer;
       const checked = q.querySelector("input[type=radio]:checked");
-      
-      if (!checked || checked.value !== correct) {
+
+      if (!checked) {
+        alert("Escolha uma opção antes de continuar!");
+        return;
+      }
+
+      if (checked.value !== correct) {
         alert("Resposta errada... tente novamente!");
         return;
       }
@@ -24,13 +28,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Botão "Abrir o portal"
+  // Finalizar
   document.querySelector(".finish-btn").addEventListener("click", () => {
     const lastQ = questions[questions.length - 1];
     const correct = lastQ.dataset.answer;
     const checked = lastQ.querySelector("input[type=radio]:checked");
 
-    if (!checked || checked.value !== correct) {
+    if (!checked) {
+      alert("Escolha uma opção antes de continuar!");
+      return;
+    }
+
+    if (checked.value !== correct) {
       alert("Resposta errada... tente novamente!");
       return;
     }
@@ -39,6 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("final-message").classList.remove("hidden");
   });
 
-  // Inicia mostrando só a primeira
-  showQuestion(current);
+  // Mostra só a primeira no início
+  showQuestion(0);
 });

@@ -8,8 +8,41 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* evita scroll das estrelas */
+  position: relative;
 }
 
+/* 🔹 Camada das estrelas */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://www.script-tutorials.com/demos/360/images/stars.png") repeat;
+  animation: move-stars 100s linear infinite;
+  z-index: 0;
+}
+
+/* 🔹 Camada do fundo nebuloso */
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://www.script-tutorials.com/demos/360/images/stars2.png") repeat;
+  animation: move-stars 200s linear infinite;
+}
+
+/* 🔹 Animação de movimento */
+@keyframes move-stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+/* 🔹 Conteúdo principal sempre acima das estrelas */
 .portal-container {
   background: rgba(0,0,0,0.6);
   padding: 30px;
@@ -17,6 +50,8 @@ body {
   max-width: 500px;
   width: 90%;
   box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  z-index: 1;
+  position: relative;
 }
 
 h1, h2 {
@@ -38,10 +73,10 @@ label {
   cursor: pointer;
 }
 
-/* 🔹 Forçar que os radios fiquem visíveis */
+/* 🔹 Radios visíveis */
 input[type="radio"] {
   margin-right: 10px;
-  transform: scale(1.3);   /* aumenta o tamanho */
+  transform: scale(1.3);
   vertical-align: middle;
   cursor: pointer;
 }

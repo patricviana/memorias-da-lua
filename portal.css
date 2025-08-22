@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* ✅ garante centralização vertical/horizontal */
   overflow: hidden; /* evita scroll das estrelas */
   position: relative;
 }
@@ -21,7 +22,7 @@ body {
   height: 200%;
   background: transparent url("https://www.script-tutorials.com/demos/360/images/stars.png") repeat;
   animation: move-stars 100s linear infinite;
-  z-index: 0;
+  z-index: -1; /* ✅ fundo fica atrás do conteúdo */
 }
 
 /* 🔹 Camada do fundo nebuloso */
@@ -34,6 +35,7 @@ body {
   height: 200%;
   background: transparent url("https://www.script-tutorials.com/demos/360/images/stars2.png") repeat;
   animation: move-stars 200s linear infinite;
+  z-index: -1; /* ✅ também atrás */
 }
 
 /* 🔹 Animação de movimento */
